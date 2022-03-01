@@ -8,6 +8,7 @@ connectDB();
 const { notFound, errorHandler } = require("./middleware/errorMiddleware");
 const userRouter = require("./routes/userRoutes");
 const chatRouter = require("./routes/chatRoutes");
+const messageRouter = require("./routes/messageRoutes");
 
 
 // const {chats} = require('./data/data')
@@ -18,6 +19,8 @@ app.use(express.json())
 // ROUTERS
 app.use("/api/user", userRouter);
 app.use("/api/chat", chatRouter);
+app.use("/api/message", messageRouter);
+
 
 // Error Handling middlewares -- 
 // NOTE: location is imp as all of the above code does not run then it will come here.
