@@ -10,10 +10,6 @@ const userRouter = require("./routes/userRoutes");
 const chatRouter = require("./routes/chatRoutes");
 const messageRouter = require("./routes/messageRoutes");
 
-
-// const {chats} = require('./data/data')
-
-
 app.use(express.json())
 
 // ROUTERS

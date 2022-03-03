@@ -17,9 +17,7 @@ const fetchAllMessages = asyncHandler(async (req, res)=>{
             res.status(400);
             throw new Error(err.message);
         }
-        
 });
-
 
 const sendMessage = asyncHandler(async (req, res)=>{
 
@@ -40,12 +38,9 @@ const sendMessage = asyncHandler(async (req, res)=>{
 
         var newMsg = await Message.create(msgData);
 
-        // Can't populate it directly as we are populating the instance of a mongoose class
         newMsg = await newMsg.populate("sender", "name pic");
         newMsg = await newMsg.populate("chat");
 
-        // Each Chat has a list of users so we need to populate the array of users. Thus, whenever 
-        // nested like situation we use this.
         newMsg = await User.populate(newMsg, {
         path: "chat.users",
         select: "name pic email",

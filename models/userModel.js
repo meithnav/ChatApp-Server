@@ -20,6 +20,7 @@ const userModel = mongoose.Schema({
     },
     pic: {
         type:String,
+        default:"https://res.cloudinary.com/dmpnxmwnr/image/upload/v1646304241/profile_ue3iiv.png"
     },
     isAdmin:{
         type:Boolean,
